@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ElegantWeb – a modern, dynamic website with sleek design and seamless user experience." />
+  <meta property="og:title" content="ElegantWeb" />
+  <meta property="og:description" content="Discover elegance in modern web design." />
+  <meta property="og:image" content="assets/preview.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <title>ElegantWeb – Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.dark-mode {
+      background-color: #0d1117;
+      color: #fff;
+    }
+
+    .dark-mode-toggle {
+      background: none;
+      border: 2px solid #61dafb;
+      color: #61dafb;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      background-color: #61dafb;
+      color: #0d1117;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-box {
+      flex: 1 1 280px;
+      background-color: #fff;
+      color: #333;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark-mode .feature-box {
+      background-color: #161b22;
+      color: #eee;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(97, 218, 251, 0.3);
+    }
+
+    .testimonials {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial {
+      background: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 1.5rem;
+      max-width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    body.dark-mode .testimonial {
+      background: #161b22;
+      color: #eee;
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background-color: #61dafb;
+      color: #0d1117;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      display: none;
+      z-index: 1000;
+    }
+
+    .back-to-top:hover {
+      box-shadow: 0 4px 12px rgba(97, 218, 251, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dynamic Web</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Mode</button>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero fade-in-up">
+        <h2>Discover Elegance in Simplicity</h2>
+        <p>We build websites that are clean, fast, and user-focused — powered by modern code and creativity.</p>
+        <img src="assets/hero-image.jpg" alt="Elegant web design illustration" />
+      </section>
+
+      <section class="fade-in-up">
+        <h3 style="text-align: center;">What Makes Us Stand Out?</h3>
+        <div class="features">
+          <div class="feature-box">
+            <h4>📱 Responsive Design</h4>
+            <p>From phones to desktops, every layout adapts seamlessly.</p>
+          </div>
+          <div class="feature-box">
+            <h4>⚙️ Backend Ready</h4>
+            <p>PHP and JS integration ensures dynamic functionality.</p>
+          </div>
+          <div class="feature-box">
+            <h4>💡 Clean Code</h4>
+            <p>Structured and optimized for performance and clarity.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials fade-in-up">
+        <h3>What People Say</h3>
+        <div class="testimonial-cards">
+          <div class="testimonial">
+            <p>"Working with you was such a smooth experience! Your attention to detail is top notch."</p>
+            <h4>– Moksh</h4>
+            <span>Your Dev Buddy</span>
+          </div>
+          <div class="testimonial">
+            <p>"Impressed by the design and speed of your work. You're going places, no doubt."</p>
+            <h4>– Yog</h4>
+            <span>Your Dev Buddy</span>
+          </div>
+          <div class="testimonial">
+            <p>"This website speaks volumes about your passion. Keep building, keep shining!"</p>
+            <h4>– Kaizad 😉</h4>
+            <span>Your Dev Buddy</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dynamic Web. All rights reserved.</p>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">↑ Top</div>
+
+  <script>
+    // Apply saved theme on load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+
+    // Toggle and save dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+    }
+
+    // Intersection animation
+    const faders = document.querySelectorAll('.fade-in-up');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Back to top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

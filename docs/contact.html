@@ -22,7 +22,8 @@
         <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    <!-- Removed inline onclick -->
+    <button class="dark-mode-toggle">Dark Mode</button>
   </header>
   
   <main>
@@ -49,12 +50,8 @@
   <footer>
     <p>&copy; 2025 Dynamic Web. All rights reserved.</p>
   </footer>
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>  
 
+  <!-- Your shared JS file will handle dark mode toggle and everything -->
   <script src="script.js" defer></script>
 </body>
 </html>

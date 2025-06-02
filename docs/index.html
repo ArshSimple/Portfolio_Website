@@ -34,13 +34,18 @@
       width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
     }
-@keyframes fadeBg {
-  0%, 20%   { background-image: url('images/bg1.jpg'); }
-  25%, 45%  { background-image: url('images/bg2.jpg'); }
-  50%, 70%  { background-image: url('images/bg3.jpg'); }
-  75%, 95%  { background-image: url('images/bg4.jpg'); }
-  100%      { background-image: url('images/bg1.jpg'); }
-}
+
+    body.dark-mode .background-slideshow::after {
+      background: rgba(0, 0, 0, 0.7); /* Darker overlay in dark mode */
+    }
+
+    @keyframes fadeBg {
+      0%, 20%   { background-image: url('images/bg1.jpg'); }
+      25%, 45%  { background-image: url('images/bg2.jpg'); }
+      50%, 70%  { background-image: url('images/bg3.jpg'); }
+      75%, 95%  { background-image: url('images/bg4.jpg'); }
+      100%      { background-image: url('images/bg1.jpg'); }
+    }
 
     /* Existing styles remain unchanged below this point */
     body.dark-mode {
@@ -111,28 +116,27 @@
       box-shadow: 0 8px 20px rgba(97, 218, 251, 0.3);
     }
 
-    .testimonials {
-      margin: 3rem 0;
-      text-align: center;
-    }
+   .testimonial-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;  /* ensure full width */
+  box-sizing: border-box; /* include padding/margin in width */
+}
 
-    .testimonial-cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+.testimonial {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 300px;  /* fixed width for consistent sizing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 auto; /* center each testimonial box */
+}
 
-    .testimonial {
-      background: #fff;
-      color: #333;
-      border-radius: 10px;
-      padding: 1.5rem;
-      max-width: 300px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
 
     body.dark-mode .testimonial {
       background: #161b22;
@@ -188,7 +192,7 @@
     <div class="container">
       <section class="hero fade-in-up">
         <h2>Discover Elegance in Simplicity</h2>
-        <p>We build websites that are clean, fast, and user-focused — powered by modern code and creativity.</p>
+        <p>I build websites that are clean, fast, and user-focused — powered by modern code and creativity.</p>
         <img src="assets/hero-image.jpg" alt="Elegant web design illustration" />
       </section>
 
@@ -240,11 +244,22 @@
   <div class="back-to-top" id="backToTop">↑ Top</div>
 
   <script>
-    // Apply saved theme on load
+    const darkModeToggleBtn = document.querySelector('.dark-mode-toggle');
+
+    function updateToggleButton() {
+      if (document.body.classList.contains('dark-mode')) {
+        darkModeToggleBtn.textContent = 'Light Mode';
+      } else {
+        darkModeToggleBtn.textContent = 'Dark Mode';
+      }
+    }
+
+    // Apply saved theme on load and update button text
     window.addEventListener('DOMContentLoaded', () => {
       if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
       }
+      updateToggleButton();
     });
 
     // Toggle and save dark mode
@@ -252,6 +267,7 @@
       document.body.classList.toggle('dark-mode');
       const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
       localStorage.setItem('theme', mode);
+      updateToggleButton();
     }
 
     // Intersection animation

@@ -12,6 +12,7 @@
   <title>About – ElegantWeb</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Your existing styles unchanged */
     :root {
       --primary: #61dafb;
       --dark-bg: #0d1117;
@@ -164,7 +165,8 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    <!-- Removed onclick, kept only the class -->
+    <button class="dark-mode-toggle">Dark Mode</button>
   </header>
 
   <main>
@@ -185,7 +187,6 @@
         <span class="skill">Git & GitHub</span>
         <span class="skill">SEO Basics</span>
         <span class="skill">JAVA</span>
-
       </div>
 
       <div class="about-buttons" style="text-align: center; margin-top: 2rem;">
@@ -202,33 +203,7 @@
 
   <div class="back-to-top" id="backToTop">↑ Top</div>
 
-  <script>
-    // Scroll-triggered animation
-    const faders = document.querySelectorAll('.fade-in-up');
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-
-    // Back to Top
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Dark Mode Toggle
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
+  <!-- Link to shared external JS -->
+  <script src="script.js" defer></script>
 </body>
 </html>
